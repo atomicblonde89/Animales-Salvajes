@@ -7,7 +7,7 @@ import Serpiente from "./serpiente.js";
 // Función asíncrona para consultar la información de la API, desde el inicio del sitio
 (async function () {
     try {
-        const Request = await fetch("./animales.json");
+        const Request = await fetch("/3.- Programación Javascript/VII.- Callbacks & APIS/1.- Animales Salvajes/animales.json");
         const response = await Request.json();
         let resultados = response.animales;
         listadoAnimales = Object.values(resultados);
@@ -32,7 +32,7 @@ const tablaAnimales = document.querySelector("#Animales");
 let listadoAnimales;
 const listadoTablaDeAnimales = [];
 
-// Funcion para formatear el Form
+
 const formatearForm = () => {
     inputAnimal.value = "";
     inputEdadAnimal.value = "";
@@ -40,7 +40,6 @@ const formatearForm = () => {
     espacioPreview.innerHTML = "";
 };
 
-// Función que imprime en la Tabla los datos de los Animales guardados
 const postearTarjetaAnimal = (informacion) => {
     let bodyInfoAnimales = '';
     informacion.forEach((animal, index) => {
@@ -48,10 +47,10 @@ const postearTarjetaAnimal = (informacion) => {
             case 'Leon':
                 bodyInfoAnimales += `
                     <div class="card-animal">
-                        <div class="card-img" data-animal="${index}" style="background-image:url(assets/imgs/${animal.Img})"></div>
+                        <div class="card-img" data-animal="${index}" style="background-image:url(src/assets/imgs/${animal.Img})"></div>
                         <div class="footer-sound" onclick="${animal.Rugir(index)}">
                             <i class="fas fa-volume-up"></i>
-                            <audio id="player${index}" src="assets/sounds/${animal.Sonido}"></audio>
+                            <audio id="player${index}" src="src/assets/sounds/${animal.Sonido}"></audio>
                         </div>
                     </div>
                 `;
@@ -59,10 +58,10 @@ const postearTarjetaAnimal = (informacion) => {
             case 'Lobo':
                 bodyInfoAnimales += `
                     <div class="card-animal">
-                        <div class="card-img" data-animal="${index}" style="background-image:url(assets/imgs/${animal.Img})"></div>
+                        <div class="card-img" data-animal="${index}" style="background-image:url(src/assets/imgs/${animal.Img})"></div>
                         <div class="footer-sound" onclick="${animal.Aullar(index)}">
                             <i class="fas fa-volume-up"></i>
-                            <audio id="player${index}" src="assets/sounds/${animal.Sonido}"></audio>
+                            <audio id="player${index}" src="src/assets/sounds/${animal.Sonido}"></audio>
                         </div>
                     </div>
                 `;
@@ -70,10 +69,10 @@ const postearTarjetaAnimal = (informacion) => {
             case 'Oso':
                 bodyInfoAnimales += `
                     <div class="card-animal">
-                        <div class="card-img" data-animal="${index}" style="background-image:url(assets/imgs/${animal.Img})"></div>
+                        <div class="card-img" data-animal="${index}" style="background-image:url(src/assets/imgs/${animal.Img})"></div>
                         <div class="footer-sound" onclick="${animal.Gruñir(index)}">
                             <i class="fas fa-volume-up"></i>
-                            <audio id="player${index}" src="assets/sounds/${animal.Sonido}"></audio>
+                            <audio id="player${index}" src="src/assets/sounds/${animal.Sonido}"></audio>
                         </div>
                     </div>
                 `;
@@ -81,10 +80,10 @@ const postearTarjetaAnimal = (informacion) => {
             case 'Serpiente':
                 bodyInfoAnimales += `
                     <div class="card-animal">
-                        <div class="card-img" data-animal="${index}" style="background-image:url(assets/imgs/${animal.Img})"></div>
+                        <div class="card-img" data-animal="${index}" style="background-image:url(src/assets/imgs/${animal.Img})"></div>
                         <div class="footer-sound" onclick="${animal.Sisear(index)}">
                             <i class="fas fa-volume-up"></i>
-                            <audio id="player${index}" src="assets/sounds/${animal.Sonido}"></audio>
+                            <audio id="player${index}" src="src/assets/sounds/${animal.Sonido}"></audio>
                         </div>
                     </div>
                 `;
@@ -92,10 +91,10 @@ const postearTarjetaAnimal = (informacion) => {
             case 'Aguila':
                 bodyInfoAnimales += `
                     <div class="card-animal">
-                        <div class="card-img" data-animal="${index}" style="background-image:url(assets/imgs/${animal.Img})"></div>
+                        <div class="card-img" data-animal="${index}" style="background-image:url(src/assets/imgs/${animal.Img})"></div>
                         <div class="footer-sound" onclick="${animal.Chillar(index)}">
                             <i class="fas fa-volume-up"></i>
-                            <audio id="player${index}" src="assets/sounds/${animal.Sonido}"></audio>
+                            <audio id="player${index}" src="src/assets/sounds/${animal.Sonido}"></audio>
                         </div>
                     </div>
                 `;
@@ -107,14 +106,13 @@ const postearTarjetaAnimal = (informacion) => {
     tablaAnimales.innerHTML = bodyInfoAnimales;
 }
 
-// EventListener que permite cargar la imagen preview cada vez que se cambia el animal
 inputAnimal.addEventListener("change", () => {
     let valorInputAnimal = inputAnimal.value;
     let imagenAnimal = listadoAnimales[valorInputAnimal].imagen;
-    espacioPreview.innerHTML = `<img src="assets/imgs/${imagenAnimal}" class="d-block mx-auto"></img>`
+    espacioPreview.innerHTML = `<img src="src/assets/imgs/${imagenAnimal}" class="d-block mx-auto"></img>`
 })
 
-// EventListener que controla el boton Guardar Info
+
 btnGRegistrar.addEventListener("click", () => {
     let validarAnimal = true;
     let validarEdad = true;
@@ -171,7 +169,6 @@ btnGRegistrar.addEventListener("click", () => {
     }
 })
 
-// Función que permite guardar crear EventListener para cada card creada
 const activarModal = (plantillaAnimal) => {
     plantillaAnimal.forEach((elemento, index) => {
         let textoClase = `.card-img[data-animal="${index}"]`;
@@ -179,7 +176,7 @@ const activarModal = (plantillaAnimal) => {
         nuevoEvento.addEventListener("click", ()=>{
             let elementModal = document.querySelector("#modalInformativo .modal-body");
             let script = `
-                <img src="assets/imgs/${elemento.Img}">
+                <img src="src/assets/imgs/${elemento.Img}">
                 <p class="text-center text-white"><b>${elemento.Edad}</b></p>
                 <p class="text-center text-white"><b>Comentarios</b></p>
                 <hr>

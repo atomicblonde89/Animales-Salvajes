@@ -1,0 +1,29 @@
+{
+  "name": "1.--animales-salvajes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atomicblonde89/Animales-Salvajes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atomicblonde89/Animales-Salvajes/issues"
+  },
+  "homepage": "https://github.com/atomicblonde89/Animales-Salvajes#readme",
+  "dependencies": {
+    "core-js": "^3.21.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.16.11"
+  }
+}

@@ -24,7 +24,9 @@ body {
 
 #preview img {
   width: auto;
-  height: 200px;
+  height: 120px;
+  position: relative;
+  right: auto;
 }
 
 
